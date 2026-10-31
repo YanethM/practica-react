@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useId } from "react";
 
-const Campo = () => {
+const Campo = ({ etiqueta, ayuda, error }) => {
+  const id = useId();
+  const idAyuda = `${id}-ayuda`;
+  const idError = `${id}-error`;
+  const descripcion = [ayuda && idAyuda, error && idError]
+    .filter(Boolean)
+    .join(" ");
   return (
-    <div>Campo</div>
-  )
-}
+    <>
+      <div className="campo">
+        <label htmlFor={id}>{etiqueta}</label>
+        {ayuda && (
+          <p id={idAyuda} className="campo-ayuda">
+            {ayuda}
+          </p>
+        )}
+      </div>
+    </>
+  );
+};
 
-export default Campo
+export default Campo;
