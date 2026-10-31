@@ -1,4 +1,4 @@
-import { Campo } from "./src/components/Campo";
+import Campo from "./src/components/Campo";
 import "/App.css";
 
 const App = () => {
@@ -10,7 +10,11 @@ const App = () => {
           <p>Crea tu cuenta o ingresa para comprar tu boletas.</p>
         </header>
         <div className="pagina-formularios">
-          <Campo />
+          <Campo
+            etiqueta="Correo"
+            type="email"
+            ayuda="Ingresa tu correo institucional"
+          />
         </div>
       </main>
     </>
