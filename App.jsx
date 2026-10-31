@@ -1,3 +1,4 @@
+import { Campo } from "./src/components/Campo";
 import "/App.css";
 
 const App = () => {
@@ -8,7 +9,9 @@ const App = () => {
           <h1>Taquilla</h1>
           <p>Crea tu cuenta o ingresa para comprar tu boletas.</p>
         </header>
-        <div className="pagina-formularios"></div>
+        <div className="pagina-formularios">
+          <Campo />
+        </div>
       </main>
     </>
   );
