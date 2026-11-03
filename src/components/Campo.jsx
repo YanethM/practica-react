@@ -1,6 +1,6 @@
 import React, { useId } from "react";
-
-const Campo = ({ etiqueta, ayuda, error }) => {
+import "./Campo.css";
+const Campo = ({ etiqueta, ayuda, error, ...atributos }) => {
   const id = useId();
   const idAyuda = `${id}-ayuda`;
   const idError = `${id}-error`;
@@ -14,6 +14,17 @@ const Campo = ({ etiqueta, ayuda, error }) => {
         {ayuda && (
           <p id={idAyuda} className="campo-ayuda">
             {ayuda}
+          </p>
+        )}
+        <input
+          id={id}
+          aria-invalid={error ? "true" : "false"}
+          aria-describedby={descripcion || undefined}
+          {...atributos}
+        />
+        {error && (
+          <p id={idError} className="campo-error">
+            {error}
           </p>
         )}
       </div>
