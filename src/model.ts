@@ -1,4 +1,6 @@
-export type Usuario = { nombre: string };
+export type Usuario = {
+  nombre: string;
+};
 
 export type Sesion = {
   usuario: Usuario | null;
