@@ -6,11 +6,22 @@ export const Navbar = ({
   cerrarSesion,
 }: Pick<Sesion, "usuario" | "cerrarSesion">) => {
   return (
-      <header className="cabecera">
-        <nav aria-label="Navegación principal">
-          <strong>Taquilla</strong>
-          <NavLink to="/">Inicio</NavLink>
-        </nav>
-      </header>
+    <header className="cabecera">
+      <nav aria-label="Navegación principal">
+        <strong>Taquilla</strong>
+        <NavLink to="/">Inicio</NavLink>
+        <NavLink to="/about">Acerca de</NavLink>
+        {usuario ? (
+          <>
+            <span>Hola, {usuario.nombre}</span>
+            <button type="button" onClick={cerrarSesion}>
+              Cerrar sesión
+            </button>
+          </>
+        ) : (
+          <NavLink to="/sign-in">Iniciar sesión</NavLink>
+        )}
+      </nav>
+    </header>
   );
 };
